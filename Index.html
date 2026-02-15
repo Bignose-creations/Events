@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventify - Home</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { font-family: Arial, sans-serif; }
+.hero { background: linear-gradient(135deg,#4e73df,#1cc88a); color:white; padding:100px 0; }
+.card:hover { transform: translateY(-5px); transition:0.3s; }
+footer { background:#222; color:white; padding:20px; }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+<a class="navbar-brand" href="index.html">Eventify</a>
+<div>
+<a class="btn btn-primary" href="events.html">Browse Events</a>
+</div>
+</div>
+</nav>
+
+<section class="hero text-center">
+<div class="container">
+<h1>Discover Amazing Events</h1>
+<p>Concerts, Conferences, Sports & More</p>
+<a href="events.html" class="btn btn-light mt-3">Explore Now</a>
+</div>
+</section>
+
+<section class="container my-5">
+<h2 class="text-center mb-4">Featured Events</h2>
+<div class="row" id="featuredEvents"></div>
+</section>
+
+<footer class="text-center">
+<p>© 2026 Eventify. All Rights Reserved.</p>
+</footer>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const events = [
+{ id:1,title:"Music Concert",date:"March 15, 2026",price:50,image:"https://via.placeholder.com/300"},
+{ id:2,title:"Tech Conference",date:"April 20, 2026",price:100,image:"https://via.placeholder.com/300"}
+];
+
+$(document).ready(function(){
+events.forEach(event=>{
+$("#featuredEvents").append(`
+<div class="col-md-4 mb-4">
+<div class="card shadow">
+<img src="${event.image}" class="card-img-top">
+<div class="card-body">
+<h5>${event.title}</h5>
+<p>${event.date}</p>
+<p>$${event.price}</p>
+<a href="events.html" class="btn btn-primary">View</a>
+</div>
+</div>
+</div>
+`);
+});
+});
+</script>
+
+</body>
+</html>
